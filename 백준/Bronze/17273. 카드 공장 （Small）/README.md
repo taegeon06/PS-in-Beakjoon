@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 31120 KB, 시간: 88 ms
+메모리: 31120 KB, 시간: 36 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2024년 6월 21일 19:49:24
+2024년 6월 21일 19:51:56
 
 ### 문제 설명
 
@@ -24,7 +24,7 @@
 
 <p>예를 들면 다음 그림과 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 650px; height: 348px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/5e43f5c7-2b66-4e72-9887-9f70e8cee266/-/preview/" style="width: 650px; height: 348px;"></p>
 
 <p><strong>카드들은 처음에 모두 앞면이 보여지도록 세팅되어 있고, 카드에 적힌 수는 10,000 이하의 자연수이다.</strong></p>
 
