@@ -1,44 +1,29 @@
-import sys
-
-input = sys.stdin.readline
-
 N = int(input())
+li = list(map(int, input().split()))
+li.reverse()
 
-order = []
+temp = []
+ord = 1
+#print(li)
+for i in range(N) :
+    #print(temp)
+    ps = li.pop()
+    if ps != ord :
+        temp.append(ps)
 
-for i in range(1,N + 1) :
-    order.append(i)
-
-J = list(map(int,input().split()))
-J.reverse()
-
-space = []
-index = 0
-
-while J :
-    if J[-1] == order[index] :
-        J.pop()
-        index += 1
     else :
-        if space and space[-1] == order[index] :
-            space.pop()
-            index += 1
-        else :
-            space.append(J.pop())
+        ord += 1
 
-while space :
-    if space[-1] == order[index] :
-        space.pop()
-        index += 1
-    else :
-        break
+    if temp :
+        tmp = len(temp)
+        for j in range(tmp) :
+            if temp[-1] == ord :
+                temp.pop()
+                ord += 1
+            else :
+                break
 
-if not J and not space :
-    print('Nice')
-else : print('Sad')
-
-
-    
-    
-
-
+if temp :
+    print("Sad")
+else :
+    print("Nice")
