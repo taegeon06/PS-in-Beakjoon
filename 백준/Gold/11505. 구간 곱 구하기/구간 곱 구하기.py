@@ -28,16 +28,16 @@ def seg_update(idx, val) :
         idx //= 2
         tree[idx] = (tree[idx * 2] * tree[idx * 2 + 1]) % mod
 
-times = 2
-
 while n > t :
-    t *= times
+    t *= 2
 
 tree = [1 for i in range(t * 2)]
 
 for i in range(n) :
-    val = int(input())
-    seg_update(i, val)
+    tree[t + i] = int(input())
+
+for i in range(t - 1, 0, -1) :
+    tree[i] = (tree[i * 2] * tree[i * 2 + 1]) % mod
 
 #print(tree)
 
