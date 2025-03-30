@@ -1,3 +1,4 @@
+
 import sys
 
 input = sys.stdin.readline
@@ -5,15 +6,15 @@ input = sys.stdin.readline
 T = int(input())
 
 def query(i, s, e, l, r) :
-    if s > r or e < l : return 0, n - 1, 0, n - 1
-    if s <= l and e >= r : return tree[i], tree1[i], tree2[i], tree3[i]
+    if s > r or e < l : return 0, n - 1
+    if s <= l and e >= r : return tree[i], tree1[i]
 
     mid = (l + r) // 2
 
-    v1, v11, vv1, vv11 = query(i * 2, s, e, l, mid)
-    v2, v22, vv2, vv22 = query(i * 2 + 1, s, e, mid + 1, r)
+    v1, v11 = query(i * 2, s, e, l, mid)
+    v2, v22 = query(i * 2 + 1, s, e, mid + 1, r)
 
-    return max(v1, v2), min(v11, v22), max(vv1, vv2), min(vv11, vv22)
+    return max(v1, v2), min(v11, v22)
 
 def update(i, v, v1) :
     i += t
@@ -36,22 +37,15 @@ for _ in range(T) :
 
     tree = [0 for i in range(t * 2)]
     tree1 = [n - 1 for i in range(t * 2)]
-    tree2 = [0 for i in range(t * 2)]
-    tree3 = [n - 1 for i in range(t * 2)]
 
     for i in range(n) :
         tree[i + t] = i
         tree1[i + t] = i
-        tree2[i + t] = i
-        tree3[i + t] = i
 
     
     for i in range(t - 1, 0, -1) :
         tree[i] = max(tree[i * 2], tree[i * 2 + 1])
         tree1[i]= min(tree1[i * 2], tree1[i * 2 + 1])
-
-        tree2[i] = max(tree2[i * 2], tree2[i * 2 + 1])
-        tree3[i]= min(tree3[i * 2], tree3[i * 2 + 1])
     
     #print(tree, ai)
 
@@ -67,13 +61,13 @@ for _ in range(T) :
             update(b, v1, v11)
         
         if q == 1 :
-            v1, v2, v11, v22 = query(1, a, b, 0, t - 1)
+            v1, v2 = query(1, a, b, 0, t - 1)
 
-            if v1 == v11 and v2 == v22 :
+            if v1 == b and v2 == a :
                 print("YES")
             
             else :
                 print("NO")
             
-            #print(v1, v2, v11, v22)
-            #print(tree, tree1, tree2, tree3)
+            #print(v11, v22, a, b)
+            #print(tree, tree1, tree2, tree3)```
