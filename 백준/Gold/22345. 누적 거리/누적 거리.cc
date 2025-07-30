@@ -9,7 +9,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-    int n, q;
+    ll n, q;
     cin >> n >> q;
     vector<pair<ll, ll>> a(n);
     vector<ll> tm(n);
@@ -71,7 +71,7 @@ int main()
             if (x < tm[k]) {
                 cout << pf2[k] - pf4[k] * (x - ll(-1e9)) + pf1[k - 1] - pf3[k - 1] * (ll(1e9) - x) << '\n';
             } else {
-                cout << pf1[0] - pf3[0] * (ll(1e9) - x) << '\n';
+                cout << pf1[n - 2] - pf3[n - 2] * (ll(1e9) - x) << '\n';
             }
             continue;    
         }
